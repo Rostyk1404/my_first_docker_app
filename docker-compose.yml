@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+
+  random_generator:
+    build:
+      context: ./random_generator
+      dockerfile: ./Dockerfile
+    image: random_generator_image:latest
+    ports:
+      - "80:80"
+    networks:
+    - training_network
+  number_consumer:
+    build:
+      context: ./number_consumer
+      dockerfile: ./Dockerfile
+    image: number_consumer_image:latest
+    volumes:
+      - ./data_from_number_consumer:/data_from_number_consumer
+    networks:
+    - training_network
+
+
+networks:
+  training_network:
+    driver: bridge
+    name: training_network
