@@ -7,3 +7,5 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+data_from_number_consumer/
+random_generator/opent_file.py
