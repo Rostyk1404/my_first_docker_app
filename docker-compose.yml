@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.5'
 services:
 
   random_generator:
@@ -24,6 +24,8 @@ services:
       context: ./data_from_file
       dockerfile: ./Dockerfile
     image: data_from_file_image:latest
+    volumes:
+      - ./data_from_number_consumer:/home/ross/myfirst_docker_app/data_from_number_consumer
     ports:
       - "8080:8080"
     networks:
